@@ -1,0 +1,11 @@
+Backend URL: 
+http:localhost:4444/
+http:localhost:4444/swagger-ui/index.html
+http:localhost:4444/h2-console
+
+
+Frontend URL:
+http:localhost:3000/ 
+
+NPM 
+npm install axios --save
