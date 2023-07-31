@@ -1,8 +1,9 @@
 // rcc
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next'; // or any other package where 'withTranslation' is defined
 
 //CLASS
-export default class RouterBlog extends Component {
+class RouterBlog extends Component {
 
     //displayName
     static displayName = "RouterBlog";
@@ -32,6 +33,9 @@ export default class RouterBlog extends Component {
   } //end render
 } //end class
 
+//Higher Order Component - HOC
+export default withTranslation ()(RouterBlog);
+
 
 //rfc
 // import React from 'react'
@@ -41,3 +45,4 @@ export default class RouterBlog extends Component {
 //     <div>RouterBlog</div>
 //   )
 // }
+
