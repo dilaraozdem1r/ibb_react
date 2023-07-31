@@ -151,7 +151,7 @@ import { withTranslation } from 'react-i18next';
       className="text-center p-4"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}
     >
-      © 2021 Copyright:
+     {this.props.copy}
       <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
         Blog
       </a>
