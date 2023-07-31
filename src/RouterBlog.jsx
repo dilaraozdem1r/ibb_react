@@ -3,13 +3,18 @@ import React, { Component } from 'react'
 
 //CLASS
 export default class RouterBlog extends Component {
+
+    //displayName
+    static displayName = "RouterBlog";
+
     //constructor
     constructor(props){
         super(props);
 
-        //state
+        //STATE
         this.state = {};
-        //bind
+
+        //BIND
     }
 
     //CDM
