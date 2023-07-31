@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import RouterBlog from './RouterBlog';
 import reportWebVitals from './reportWebVitals';
 
+//BrowserRouter => http://localhost:3000/
+//HashRouter => http://localhost:3000/#/
+import { BrowserRouter,HashRouter } from 'react-router-dom';
+
+//ROOT
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+//RENDER
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <RouterBlog />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
