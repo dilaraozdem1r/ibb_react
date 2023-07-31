@@ -1,41 +1,45 @@
 // rcc
-import React, { Component } from 'react'
-import { withTranslation } from 'react-i18next'; // or any other package where 'withTranslation' is defined
+import React, { Component } from "react";
+import { withTranslation } from "react-i18next"; // or any other package where 'withTranslation' is defined
+import Header from "./component/blog/Header";
+import Main from "./component/blog/Main";
+import Footer from "./component/blog/Footer";
 
 //CLASS
 class RouterBlog extends Component {
+  //displayName
+  static displayName = "RouterBlog";
 
-    //displayName
-    static displayName = "RouterBlog";
+  //constructor
+  constructor(props) {
+    super(props);
 
-    //constructor
-    constructor(props){
-        super(props);
+    //STATE
+    this.state = {};
 
-        //STATE
-        this.state = {};
+    //BIND
+  }
 
-        //BIND
-    }
+  //CDM
 
-    //CDM
-
-    //Function
-
-     
-
+  //Function
 
   //render
   render() {
     return (
-      <div>RouterBlog</div>
-    ) //end return
+      <React.Fragment>
+        <Header />
+        <br />
+        <Main />
+        <br />
+        <Footer />
+      </React.Fragment>
+    ); //end return
   } //end render
 } //end class
 
 //Higher Order Component - HOC
-export default withTranslation ()(RouterBlog);
-
+export default withTranslation()(RouterBlog);
 
 //rfc
 // import React from 'react'
@@ -45,4 +49,3 @@ export default withTranslation ()(RouterBlog);
 //     <div>RouterBlog</div>
 //   )
 // }
-
