@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 
  class BlogCreate extends Component {
+  //displayName
+  static displayName = "Blog_Create";
+
+  //constructor
+  constructor(props) {
+    super(props);
+
+    //STATE
+    this.state = {
+      header:null,
+      content:null,
+      blogDto:{}, //object
+    };
+  }
   render() {
     const { t } = this.props;
     return (
@@ -15,8 +29,8 @@ import { withTranslation } from "react-i18next";
             <input
               type="text"
               className="form-control"
-              id=""
-              name=""
+              id="header"
+              name="header"
               placeholder={t("blog_header")}
               required={true}
               focus={true}
@@ -29,14 +43,17 @@ import { withTranslation } from "react-i18next";
               rows="3"
               type="text"
               className="form-control"
-              id=""
-              name=""
+              id="content"
+              name="content"
               placeholder={t("blog_content")}
               required={true}
               focus={true}
             />
           </div>
-          <button className="btn btn-primary mt-3">{t('submit')}</button>
+          {/*submit*/}
+
+          <button className="btn btn-danger mb-5 me-3">{t('reset')}</button>
+          <button className="btn btn-primary mb-5">{t('submit')}</button>
         </form>
       </React.Fragment>
     );
