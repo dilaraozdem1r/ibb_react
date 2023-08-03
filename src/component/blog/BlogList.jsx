@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import BlogApi from "../../services/BlogApi.js";
+import { Link } from "react-router-dom";
 //CLASS
 class BlogList extends Component {
   //componentteki isim
@@ -14,7 +15,6 @@ class BlogList extends Component {
       blogList: [],
     };
     //BIND
-    this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.view = this.view.bind(this);
     this.delete = this.delete.bind(this);
@@ -36,16 +36,17 @@ class BlogList extends Component {
   } //end CDM
 
   //Function
-  create() {
-    alert("create success");
-  }
+
 
   update(id) {
     alert(id);
   }
 
   delete(id) {
-    alert(id);
+    //alert(id);
+    BlogApi.blogServiceDelete(id).then((response)=>{this.setState({
+      blogList:this.state.blogList.filter((temp)=>temp.id!==id)
+    })}).catch((err)=>{alert("veri silmede hata var")});
   }
 
   view(id) {
@@ -59,9 +60,7 @@ class BlogList extends Component {
     return (
       <div>
         <h1 className="text-center display-4 text-uppercase mt-5">blog list</h1>
-        <button className="btn btn-primary" onClick={this.create}>
-          <i className="fa-solid fa-plus"></i> Blog Create
-        </button>
+        <Link to="/blog/create" className="btn btn-primary ms-2"><i className="fa-solid fa-plus"></i> Blog Create</Link>
         <button className="btn btn-danger ms-2">
           <i className="fa-solid fa-trash"></i> blog all delete
         </button>
