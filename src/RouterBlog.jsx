@@ -16,8 +16,15 @@ import BlogView from "./component/blog/BlogView";
 import BlogCreate from "./component/blog/BlogCreate";
 import Main from "./component/Main";
 
+
+
+function getYear() {
+  return new Date().getFullYear();
+}
+
 //CLASS
 class RouterBlog extends Component {
+  
   //displayName
   static displayName = "RouterBlog";
 
@@ -32,11 +39,13 @@ class RouterBlog extends Component {
   }
 
   //CDM
-
+ 
   //Function
+ 
 
   //render
   render() {
+    const year=getYear();
     return (
       <React.Fragment>
         {/* HEADER */}
@@ -53,7 +62,7 @@ class RouterBlog extends Component {
           </Routes>
         </div>
         {/* FOOTER */}
-        <Footer copy=" © 2021 -2023 Copyright: " />
+        <Footer copy= {`© 2021 - ${year} Copyright: `}  />
       </React.Fragment>
     ); //end return
   } //end render
