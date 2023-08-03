@@ -29,7 +29,7 @@ import BlogApi from '../../services/BlogApi.js';
 
     //object destructing
     const {t} =this.props;
-
+    const {blogList}=this.state;
     return (
       <div><h1 className="text-center display-4 text-uppercase">blog list</h1>
         <table className="table table-hover table-striped">
@@ -40,15 +40,25 @@ import BlogApi from '../../services/BlogApi.js';
               <th>{t('blog_header')}</th>
               <th>{t('blog_content')}</th>
               <th>{t('date')}</th>
+              <th>{t('update')}</th>
+              <th>{t('view')}</th>
+              <th>{t('delete')}</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>item 1</td>
-              <td>item 2</td>
-              <td>item 3</td>
-              <td>item 4</td>
-            </tr>
+
+            {blogList.map((temp)=>{
+              <tr key={temp.id}>
+                <td>{temp.header}</td>
+                <td>{temp.content}</td>
+                <td>{}</td>
+                <td><i className="fa-solid fa-pen-nib text-primary" style={{"cursor":"pointer"}}></i></td>
+              <td><i className="fa-solid fa-binoculars text-warning" style={{"cursor":"pointer"}}></i></td>
+              <td><i className="fa-solid fa-trash text-danger" style={{"cursor":"pointer"}}></i></td>
+              </tr>
+            })//end map
+            }//end loop map 
+            
           </tbody>
         </table>
       </div>
