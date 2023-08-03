@@ -5,9 +5,13 @@ import App from './App';
 import RouterBlog from './RouterBlog';
 import reportWebVitals from './reportWebVitals';
 
+
 //BrowserRouter => http://localhost:3000/
 //HashRouter => http://localhost:3000/#/
 import { BrowserRouter,HashRouter } from 'react-router-dom';
+
+//dil seçeneği için  ekledim
+import './internationalization/i18language';
 
 //ROOT
 const root = ReactDOM.createRoot(document.getElementById('root'));
