@@ -26,8 +26,32 @@ import BlogApi from '../../services/BlogApi.js';
   }
 
   render() {
+
+    //object destructing
+    const {t} =this.props;
+
     return (
-      <div>BlogList</div>
+      <div><h1 className="text-center display-4 text-uppercase">blog list</h1>
+        <table className="table table-hover table-striped">
+          <thead>
+            '':"ID"
+            <tr>
+              <th>{t('blog_id')}</th>
+              <th>{t('blog_header')}</th>
+              <th>{t('blog_content')}</th>
+              <th>{t('date')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>item 1</td>
+              <td>item 2</td>
+              <td>item 3</td>
+              <td>item 4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

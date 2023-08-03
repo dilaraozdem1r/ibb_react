@@ -9,7 +9,7 @@ class BlogApi {
   // ALL CREATE
   // http://localhost:4444/blog/api/v1/speed/10
 
-  speedData(data) {
+  speedData() {
     return axios.get(`${BLOG_URL}/speed/10`);
   }
 
