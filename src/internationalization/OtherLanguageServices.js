@@ -1,9 +1,9 @@
-
+import axios from "axios";
 //Language
 class OtherLanguageServices{
 
     //Language Flag Button
-    headerAccessLanguage(languageButtonTrigger){
+    headerAccessLanguageServices(languageButtonTrigger){
         axios.defaults.headers["accept-language"]=languageButtonTrigger;
     }
     

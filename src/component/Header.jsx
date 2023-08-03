@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
+import OtherLanguageReusability from '../internationalization/OtherLanguageReusability';
 
  class Header extends Component {
 
@@ -16,12 +17,14 @@ import { withTranslation } from 'react-i18next';
   }
 
   render() {
+    //object destructing
+    const {logo,t}=this.props;
     return (
         <React.Fragment>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <div className="container">
                 <a className="navbar-brand" href="#">
-                <i className={this.props.logo}></i>
+                <i className={logo}></i>
                 </a>
                 <button
                     className="navbar-toggler d-lg-none"
@@ -38,15 +41,20 @@ import { withTranslation } from 'react-i18next';
                     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                         <li className="nav-item">
                             <a className="nav-link active" href="#" aria-current="page">
-                                Home <span className="visually-hidden">(current)</span>
+                                {t('homepage')} <span className="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                                Link
+                            {t('about')}
                             </a>
                         </li>
-                        <li className="nav-item dropdown">
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">
+                            {t('blog')}
+                            </a>
+                        </li>
+                        {/* <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
                                 href="#"
@@ -65,8 +73,12 @@ import { withTranslation } from 'react-i18next';
                                     Action 2
                                 </a>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
+
+                    //dil için
+                    <OtherLanguageReusability/>
+
                     <form className="d-flex my-2 my-lg-0">
                         <input
                             className="form-control me-sm-2"

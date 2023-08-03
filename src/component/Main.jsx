@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import cardPicture from "../assist/img/resim.jpg";
-
+import OtherLanguageReusability from "../internationalization/OtherLanguageReusability.jsx";
 //CSS MAIN
 import "./main.css";
 
@@ -10,12 +10,12 @@ export default class Main extends Component {
     return (
       <React.Fragment>
         <div
-          class="alert alert-danger alert-dismissible fade show"
+          className="alert alert-danger alert-dismissible fade show"
           role="alert"
         >
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
           ></button>
@@ -27,6 +27,7 @@ export default class Main extends Component {
         <Link to="/blog/list" className="btn btn-primary mt-3 mb-3">
           <img src={cardPicture} />
         </Link>
+       
 
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
