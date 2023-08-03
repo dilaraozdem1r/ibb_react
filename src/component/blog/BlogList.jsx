@@ -52,9 +52,9 @@ import BlogApi from '../../services/BlogApi.js';
                 <td>{temp.header}</td>
                 <td>{temp.content}</td>
                 <td>{}</td>
-                <td><i className="fa-solid fa-pen-nib text-primary" style={{"cursor":"pointer"}}></i></td>
-              <td><i className="fa-solid fa-binoculars text-warning" style={{"cursor":"pointer"}}></i></td>
-              <td><i className="fa-solid fa-trash text-danger" style={{"cursor":"pointer"}}></i></td>
+                <td><i className="fa-solid fa-pen-nib text-primary text-center" style={{"cursor":"pointer"}}></i></td>
+              <td><i className="fa-solid fa-binoculars text-warning text-center" style={{"cursor":"pointer"}}></i></td>
+              <td><i className="fa-solid fa-trash text-danger text-center" style={{"cursor":"pointer"}}></i></td>
               </tr>
             })//end map
             }//end loop map 
