@@ -58,4 +58,4 @@ class BlogApi {
   }
 } //end class
 
-export default BlogApi();
+export default new BlogApi();
