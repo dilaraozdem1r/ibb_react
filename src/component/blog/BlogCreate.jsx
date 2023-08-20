@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
 import BlogApi from "../../services/BlogApi.js";
+import ReusabilityBlogInput from "./ReusabilityBlogInput.jsx";
 
 class BlogCreate extends Component {
   //displayName
@@ -21,7 +22,7 @@ class BlogCreate extends Component {
     //BIND
     this.onChangeInputValue = this.onChangeInputValue.bind(this);
     this.onChangeIsRead = this.onChangeIsRead.bind(this);
-    this.createSubmit=this.createSubmit.bind(this);
+    this.createSubmit = this.createSubmit.bind(this);
   }
 
   //Function
@@ -38,8 +39,8 @@ class BlogCreate extends Component {
       content: null,
       blogDto: {},
       isRead: false,
-      spinnerData:false, //spinner
-      multipleRequest:false //çoklu isteklere izin verme
+      spinnerData: false, //spinner
+      multipleRequest: false, //çoklu isteklere izin verme
     });
   };
 
@@ -69,17 +70,16 @@ class BlogCreate extends Component {
     //2.YOL (async-await)
     try {
       //SPINNER
-      this.setState({spinnerData:true,multipleRequest:false})
+      this.setState({ spinnerData: true, multipleRequest: false });
       const response = await BlogApi.blogServiceCreate(blogDto);
       if (response.status === 200) {
         alert("blog başarıyla eklendi");
-        this.setState({spinnerData:false,multipleRequest:true})
+        this.setState({ spinnerData: false, multipleRequest: true });
         this.resetDatas();
       }
     } catch {
-      this.setState({spinnerData:false,multipleRequest:true})
+      this.setState({ spinnerData: false, multipleRequest: true });
       alert("blog eklenirken hata var");
-      
     }
   };
 
@@ -92,7 +92,7 @@ class BlogCreate extends Component {
           {t("blog_create")}
         </h1>
         <form>
-          <div className="form-group mb-4">
+          {/* <div className="form-group mb-4">
             <span>{t("blog_header")}</span>
             <input
               type="text"
@@ -103,7 +103,16 @@ class BlogCreate extends Component {
               required={true}
               onChange={this.onChangeInputValue}
             />
-          </div>
+          </div> */}
+          <ReusabilityBlogInput
+            type="text"
+            className="form-control"
+            id="header"
+            name="header"
+            placeholder={t("blog_header")}
+            required={true}
+            onChange={this.onChangeInputValue}
+          />
 
           <div className="form-group mb-4">
             <span>{t("blog_content")}</span>
@@ -143,9 +152,11 @@ class BlogCreate extends Component {
             disabled={!isRead && this.state.multipleRequest}
             onClick={this.createSubmit}
           >
-           {(this.state.spinnerData)&& <span className="spinner-border text-warning"></span>}  {t("submit")}{" "}
+            {this.state.spinnerData && (
+              <span className="spinner-border text-warning"></span>
+            )}{" "}
+            {t("submit")}{" "}
           </button>
-         
         </form>
       </React.Fragment>
     );
