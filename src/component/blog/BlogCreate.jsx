@@ -21,6 +21,7 @@ class BlogCreate extends Component {
     //BIND
     this.onChangeInputValue = this.onChangeInputValue.bind(this);
     this.onChangeIsRead = this.onChangeIsRead.bind(this);
+    this.createSubmit=this.createSubmit.bind(this);
   }
 
   //Function
@@ -37,6 +38,7 @@ class BlogCreate extends Component {
       content: null,
       blogDto: {},
       isRead: false,
+      spinnerData:false, //spinner
     });
   };
 
@@ -65,13 +67,17 @@ class BlogCreate extends Component {
 
     //2.YOL (async-await)
     try {
+      //SPINNER
+      this.setState({spinnerData:true})
       const response = await BlogApi.blogServiceCreate(blogDto);
       if (response.status === 200) {
         alert("blog başarıyla eklendi");
+        this.setState({spinnerData:false})
         this.resetDatas();
       }
     } catch {
       alert("blog eklenirken hata var");
+      this.setState({spinnerData:false})
     }
   };
 
