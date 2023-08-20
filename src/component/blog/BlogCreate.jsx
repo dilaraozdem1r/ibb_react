@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
+import BlogApi from "../../services/BlogApi.js";
 
 class BlogCreate extends Component {
   //displayName
@@ -40,11 +41,27 @@ class BlogCreate extends Component {
     });
   }
 
+  //ONCHANGE
   onChangeInputValue = (event) => {
     console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
+  }
+
+  //SUBMIT
+  createSubmit = async (event) => {
+    event.preventDefault();
+    const {header,content}=this.state;
+    const blogDto={header,content}
+    console.log(blogDto);
+
+    BlogApi.blogServiceCreate(blogDto).then((response)=>{
+      if(response.status===200){
+        alert("blog başarıyla eklendi");
+        this.resetDatas();
+      }
+    }).catch((err)=>{alert("blog eklenirken hata var")});//end blogServiceCreate  
   }
 
   render() {
@@ -96,7 +113,7 @@ class BlogCreate extends Component {
           </div>
           <button className="btn btn-danger mb-5 me-3" onClick={this.resetDatas} >{t("reset")}</button>
 
-          <button className="btn btn-primary mb-5" disabled={!isRead}>{t("submit")}</button>
+          <button className="btn btn-primary mb-5" disabled={!isRead} onClick={this.createSubmit}>{t("submit")} </button>
         </form>
       </React.Fragment>
     );
