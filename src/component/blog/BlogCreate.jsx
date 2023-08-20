@@ -16,6 +16,11 @@ class BlogCreate extends Component {
       blogDto: {}, //object
       isRead: false, //sözleşme kuralları
     };
+
+    //BIND
+    this.onChangeInputValue = this.onChangeInputValue.bind(this);
+    this.onChangeIsRead = this.onChangeIsRead.bind(this);
+
   }
 
   //Function
