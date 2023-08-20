@@ -26,6 +26,15 @@ class BlogCreate extends Component {
     });
   };
 
+  resetDatas=()=>{
+    this.setState({
+      header:null,
+      content:null,
+      blogDto:{},
+      isRead:false
+    });
+  }
+
   render() {
     const { t } = this.props;
     const { isRead} = this.state;
@@ -71,7 +80,7 @@ class BlogCreate extends Component {
               {t("are_you_read_deal")}
             </label>
           </div>
-          <button className="btn btn-danger mb-5 me-3" >{t("reset")}</button>
+          <button className="btn btn-danger mb-5 me-3" onClick={this.resetDatas} >{t("reset")}</button>
 
           <button className="btn btn-primary mb-5" disabled={!isRead}>{t("submit")}</button>
         </form>

@@ -39,7 +39,8 @@ class BlogList extends Component {
 
 
   update(id) {
-    alert(id);
+    // alert(id);
+    window.open("/blog/update/" + id);
   }
 
   delete(id) {
@@ -91,11 +92,14 @@ class BlogList extends Component {
                     ></i>
                   </td>
                   <td>
+                    <Link to={`/blog/view/${temp.id}`}>
+                  
                     <i
                       className="fa-solid fa-binoculars text-warning text-center"
                       style={{ cursor: "pointer" }}
                       onClick={() => this.view(temp.id)}
                     ></i>
+                      </Link>
                   </td>
                   <td>
                     <i
