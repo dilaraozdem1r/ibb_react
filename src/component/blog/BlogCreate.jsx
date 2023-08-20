@@ -35,6 +35,13 @@ class BlogCreate extends Component {
     });
   }
 
+  onChangeInputValue = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   render() {
     const { t } = this.props;
     const { isRead} = this.state;
@@ -53,6 +60,7 @@ class BlogCreate extends Component {
               name="header"
               placeholder={t("blog_header")}
               required={true}
+              onChange={this.onChangeInputValue}
             />
           </div>
 
@@ -66,6 +74,7 @@ class BlogCreate extends Component {
               name="content"
               placeholder={t("blog_content")}
               required={true}
+              onChange={this.onChangeInputValue}
             />
           </div>
           {/*submit*/}
