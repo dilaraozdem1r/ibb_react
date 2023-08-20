@@ -39,6 +39,7 @@ class BlogCreate extends Component {
       blogDto: {},
       isRead: false,
       spinnerData:false, //spinner
+      multipleRequest:false //çoklu isteklere izin verme
     });
   };
 
@@ -68,15 +69,15 @@ class BlogCreate extends Component {
     //2.YOL (async-await)
     try {
       //SPINNER
-      this.setState({spinnerData:true})
+      this.setState({spinnerData:true,multipleRequest:false})
       const response = await BlogApi.blogServiceCreate(blogDto);
       if (response.status === 200) {
         alert("blog başarıyla eklendi");
-        this.setState({spinnerData:false})
+        this.setState({spinnerData:false,multipleRequest:true})
         this.resetDatas();
       }
     } catch {
-      this.setState({spinnerData:false})
+      this.setState({spinnerData:false,multipleRequest:true})
       alert("blog eklenirken hata var");
       
     }
@@ -139,7 +140,7 @@ class BlogCreate extends Component {
           <button
             type="submit"
             className="btn btn-primary mb-5"
-            disabled={!isRead}
+            disabled={!isRead && this.state.multipleRequest}
             onClick={this.createSubmit}
           >
            {(this.state.spinnerData)&& <span className="spinner-border text-warning"></span>}  {t("submit")}{" "}
