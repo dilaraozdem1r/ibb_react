@@ -76,8 +76,9 @@ class BlogCreate extends Component {
         this.resetDatas();
       }
     } catch {
-      alert("blog eklenirken hata var");
       this.setState({spinnerData:false})
+      alert("blog eklenirken hata var");
+      
     }
   };
 
@@ -136,12 +137,14 @@ class BlogCreate extends Component {
           </button>
 
           <button
+            type="submit"
             className="btn btn-primary mb-5"
             disabled={!isRead}
             onClick={this.createSubmit}
           >
-            {t("submit")}{" "}
+           {(this.state.spinnerData)&& <span className="spinner-border text-warning"></span>}  {t("submit")}{" "}
           </button>
+         
         </form>
       </React.Fragment>
     );
