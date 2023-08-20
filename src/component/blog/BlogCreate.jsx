@@ -58,6 +58,8 @@ class BlogCreate extends Component {
     const { header, content } = this.state;
     const blogDto = { header, content };
     console.log(blogDto);
+    localStorage.setItem("header", header);
+    localStorage.setItem("content", content);
 
     //1.YOL
     // BlogApi.blogServiceCreate(blogDto).then((response)=>{
