@@ -52,6 +52,7 @@ class BlogList extends Component {
 
   view(id) {
     alert(id);
+    window.open("/blog/view/" + id);
   }
 
   render() {
