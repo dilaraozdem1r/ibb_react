@@ -52,6 +52,8 @@ class BlogList extends Component {
 
   view(id) {
     alert(id);
+    //this.props.history.push("/blog/view/" + id);
+    this.props.history.push(`/blog/view/${id}`);
     window.open("/blog/view/" + id);
   }
 
