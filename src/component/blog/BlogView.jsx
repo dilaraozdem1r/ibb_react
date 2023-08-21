@@ -28,6 +28,8 @@ class BlogView extends Component {
 
   //RENDER
   render() {
+    const {t}=this.props;
+    const {id,header}=this.state.registerDto;
     //RETURN
     return (
       <React.Fragment>
@@ -35,18 +37,18 @@ class BlogView extends Component {
         <div className="card">
           <img src={cardPicture} className="card-img-top" alt="..." />
           <div className="card-body mx-auto">
-            <h4 className="card-title">ID: {this.state.id} Lorem ipsum dolor sit amet.</h4>
+            <h4 className="card-title">{t("blog_id")} {this.state.id} Lorem ipsum dolor sit amet.</h4>
             <p className="card-text">
-              <b>HEADER</b> {this.state.registerDto.header}
+              <b>{t("blog_header")}</b> {header}
             </p>
             <p className="card-text">
               <b>
-                <mark>CONTENT</mark>
+                <mark>{t("blog_content")}</mark>
               </b>{" "}
               {this.state.registerDto.content}
             </p>
             <p className="card-text" style={{fontWeight:"bold"}}>
-              <i>DATE</i> <q>{this.state.registerDto.date}</q>
+              <i>{t("date")}</i> <q>{this.state.registerDto.date}</q>
             </p>
           </div>
         </div>
