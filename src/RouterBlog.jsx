@@ -16,6 +16,12 @@ import BlogView from "./component/blog/BlogView";
 import BlogCreate from "./component/blog/BlogCreate";
 import Main from "./component/Main";
 
+//FUNCTION CRUD
+import BlogLİst2 from "./component/blog_function/BlogList";
+import BlogView2 from "./component/blog_function/BlogView";
+import BlogUpdate2 from "./component/blog_function/BlogUpdate";
+import BlogCreate2 from "./component/blog_function/BlogCreate";
+
 
 
 function getYear() {
@@ -53,12 +59,21 @@ class RouterBlog extends Component {
         <div className="container">
           <Routes>
             <Route path="/" element={<Main />} />
-            {/* Blog Crud */}
+            {/* Blog Class Crud */}
             <Route path="/blog/list" element={<BlogList />} />
             <Route path="/blog/create" element={<BlogCreate />} />
             <Route path="/blog/view/:id" element={<BlogView />} />
             <Route path="/blog/update/:id" element={<BlogUpdate />} />
             <Route path="*" element={<Navigate to="/" />} />
+
+           {/* Blog Funciton Crud */}
+           <Route path="/blog/list2" element={<BlogLİst2 />} />
+            <Route path="/blog/create2" element={<BlogCreate2 />} />
+            <Route path="/blog/view2" element={<BlogView2 />} />
+            <Route path="/blog/update2" element={<BlogUpdate2 />} />
+            <Route path="*" element={<Navigate to="/" />} />
+
+
           </Routes>
         </div>
         {/* FOOTER */}
