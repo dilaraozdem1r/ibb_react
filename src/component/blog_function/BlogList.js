@@ -36,8 +36,7 @@ export default function BlogList() {
 
   const setViewBlogData = (id) => {
     localStorage.setItem("view_id", id);
-
-
+    navigate("/blog/view2")
   }
 
   //Blog Object Get
@@ -106,7 +105,7 @@ export default function BlogList() {
 
               <td>
                 <Link to="/blog/view2">
-                  <button type="button" onClick={() => setViewBlogData(temp)}>
+                  <button type="button" onClick={() => setViewBlogData(temp.id)}>
                     <i className="fa-solid fa-binoculars text-warning text-center"></i>
                   </button>
                 </Link>
