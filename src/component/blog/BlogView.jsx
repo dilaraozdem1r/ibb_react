@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import cardPicture from "../../assist/img/resim.jpg";
+import BlogApi from "../../services/BlogApi.js";
+import { withTranslation } from "react-i18next";
 
 class BlogView extends Component {
   static displayName = "Blog_View";
