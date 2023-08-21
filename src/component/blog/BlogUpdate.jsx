@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 
-export default class BlogUpdate extends Component {
+class BlogUpdate extends Component {
+  constructor(props){
+    super(props);
+    this.state={}
+  }
+  static displayName="Blog_Update";
   render() {
     return (
-      <div>BlogUpdate</div>
+      <React.Fragment>BlogUpdate</React.Fragment>
     )
   }
 }
+
+export default BlogUpdate;
