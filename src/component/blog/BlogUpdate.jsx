@@ -6,7 +6,7 @@ class BlogUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1, //this.props.match.params.id
+      id: localStorage.getItem("blog_update_id"), //this.props.match.params.id
       header: null,
       content: null,
       systemDate: null,

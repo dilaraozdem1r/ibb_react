@@ -40,6 +40,8 @@ class BlogList extends Component {
 
   update(id) {
     // alert(id);
+    //LocalStorage
+    localStorage.setItem("blog_update_id", id);
     window.open("/blog/update/" + id);
   }
 
@@ -52,9 +54,13 @@ class BlogList extends Component {
 
   view(id) {
     alert(id);
+     //LocalStorage
+    localStorage.setItem("blog_view_id", id);
     //this.props.history.push("/blog/view/" + id);
-    this.props.history.push(`/blog/view/${id}`);
+    // this.props.history.push(`/blog/view/${id}`);
     window.open("/blog/view/" + id);
+   
+
   }
 
   render() {

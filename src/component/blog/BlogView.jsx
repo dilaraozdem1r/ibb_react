@@ -10,7 +10,7 @@ class BlogView extends Component {
     super(props);
     this.state = {
       //id:this.props.match.params.id
-      id: 4,
+      id: localStorage.getItem("blog_view_id"),
       registerDto: {},
     };
   }
