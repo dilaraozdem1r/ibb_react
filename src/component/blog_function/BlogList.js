@@ -3,6 +3,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+//Funcitonal Component
+//Hook: Class component yerine funciton componenti kullanmaya denir.
+//useNavigate: yönlendirme yapar.
+//useState: state yönetimi yapar.
+//useEffect: lifecycle yönetimi yapar.
 export default function BlogList() {
   const [mockApi, setMockApi] = useState([]);
 
@@ -22,12 +27,18 @@ export default function BlogList() {
   }, []);
 
   //Blog Object set
-  const setBlogData = (data) => {
+  const setUpdateBlogData = (data) => {
     let { id, header, content } = data;
     localStorage.setItem("blog_id", id);
     localStorage.setItem("blog_header", header);
     localStorage.setItem("blog_content", content);
   };
+
+  const setViewBlogData = (id) => {
+    localStorage.setItem("view_id", id);
+
+
+  }
 
   //Blog Object Get
   const getBlogData = () => {
@@ -44,7 +55,8 @@ export default function BlogList() {
   };
 
   const blogDelete = (id) => {
-    axios
+    if(window.confirm("Silmek istediğinizden emin misiniz?")){
+      axios
       .delete(
         `https://64e37696bac46e480e78d7fd.mockapi.io/api/v1/blog/react_project/${id}`
       )
@@ -52,11 +64,16 @@ export default function BlogList() {
       .catch((error) => {
         console.log(error);
       });
+    }else{
+      window.alert("silinmedi !")
+    }
+   
   };
 
   return (
     <React.Fragment>
       <h1 className="text-center display-4 text-uppercase mt-5">Blog List</h1>
+      <Link to="/blog/create2" className="btn btn-outline-primary mb-3">Blog Ekle</Link>
       <table className="table table-hover table-striped">
         <thead>
           <tr>
@@ -81,7 +98,7 @@ export default function BlogList() {
               {/* UPDATE */}
               <td>
                 <Link to="/blog/update2">
-                  <button type="button" onClick={() => setBlogData(temp)}>
+                  <button type="button" onClick={() => setUpdateBlogData(temp)}>
                     <i className="fa-solid fa-pen-nib text-primary text-center"></i>
                   </button>
                 </Link>
@@ -89,7 +106,7 @@ export default function BlogList() {
 
               <td>
                 <Link to="/blog/view2">
-                  <button type="button" onClick={() => setBlogData(temp)}>
+                  <button type="button" onClick={() => setViewBlogData(temp)}>
                     <i className="fa-solid fa-binoculars text-warning text-center"></i>
                   </button>
                 </Link>
